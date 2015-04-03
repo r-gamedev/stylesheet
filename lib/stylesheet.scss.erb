@@ -1,0 +1,851 @@
+/*  To Do
+x. Change 'message the moderators' URL to correctly reflect /r/gamedev
+x. Change submit button text in settings to 'Submit a New Thread'
+x. Update flair css names
+
+3. Add note in submission page about using a descriptive title
+*/
+
+/* Default text color for night mode */
+.res-nightmode .md, .res-nightmode .md h1, .res-nightmode .md h2, .res-nightmode .md h3, .res-nightmode .md h4 { color: #e6e6e6; }
+
+/* Submit page guidelines text */
+.res-nightmode .submit_text.roundfield ul li { font-size: 12px; }
+.res-nightmode .submit_text.roundfield h3 { font-size: 14px; padding: 0px; margin: 0px; }
+.res-nightmode .submit_text.roundfield p { font-size: 12px; }
+
+/* Pulls the Submission Text info above the title for posting */
+.submit_text.roundfield { position: absolute; top: 120px; }
+
+/* Hides the old Intergalactic Law violation and adds margin so the super-tall Submission text doesn't overlap. */
+.formtabs-content .infobar { margin-top: 165px; visibility: hidden; }
+
+/* Removes "submitting to /r/gamedev" text (on submission page) and zeros the height to buy us enough room to not have scrollbars */
+.submit_text h1 { visibility: hidden; height: 0px; }
+
+.pagename.redditname {
+ font-style: normal;
+ font-weight: 650;
+ text-transform: capitalize;
+ font-size: 16px;
+}
+
+/* Post in Daily Discussion button */
+.titlebox .md h4
+{
+ display: block;
+ font-weight: 800;
+ letter-spacing: -1.5px;
+ background: #6da9f5;
+ color: #fff;
+ font-size: 19px;
+ width: 300px;
+ height: 50px;
+ line-height: 50px;
+ text-align: center;
+ position: absolute;
+ top: 88px;
+ z-index: 3;
+ text-decoration: none !important;
+ -moz-border-radius: 0px!important;
+ -webkit-border-radius: 0px!important;
+ -o-border-radius: 0px!important;
+ -ms-border-radius: 0px!important;
+ -khtml-border-radius: 0px!important;
+ border-radius: 0px !important;
+ margin-top: 0px;
+}
+.res-nightmode .titlebox .md h4 { background: #4c76ab; }
+.titlebox .md h4 a { color: #fff; font-weight: 800; display: block; height: 100%; }
+.titlebox .md h4:hover { background: #4c76ab; }
+.res-nightmode .titlebox .md h4:hover { background: #355277; }
+.titlebox .md h4:active { background: #355277; }
+.res-nightmode .titlebox .md h4:active { background: #253953; }
+.old-markdown .titlebox .md h4 a, .res-nightmode .old-markdown .titlebox .md h4 a { font-weight: 200; }
+.old-markdown .titlebox .md h4, .res-nightmode .old-markdown .titlebox .md h4 { letter-spacing: -0.5px; font-size: 18px; }
+
+/* "Submit A New Thread" button */
+.submit .morelink a, .res-nightmode .submit .morelink a { font-size: 16px; }
+.submit .morelink a:hover, .res-nightmode .submit .morelink a:hover { color: #fff; }
+.res-nightmode .sidebox { border-radius: 0px; border: 0px; }
+.submit .morelink, .res-nightmode .submit .morelink { background: #7BB850; border-radius: 0px; }
+.submit .morelink:hover { background: #63983d; }
+.res-nightmode .submit .morelink:hover { background: #456a2a; }
+.submit .morelink:active { background: #456a2a; }
+.res-nightmode .submit .morelink:active { background: #304a1d; }
+.morelink, .res-nightmode .morelink {
+ width: 300px;
+ height: 50px;
+ float: left;
+ color: #fff;
+ font-weight: 800;
+ border: 0px;
+ padding: 0px;
+ border-radius: 0px;
+}
+
+.morelink a, .res-nightmode .morelink a {
+ display: block;
+ text-align: center;
+ vertical-align: bottom;
+ padding-left: 0px;
+ padding-top: 0px;
+ color: #fff;
+ font-weight: normal;
+ width: 300px;
+ font-size: 22px;
+ line-height: 47px;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ border-bottom-left-radius: 0px;
+ border-top-left-radius: 0px;
+ text-transform: capitalize;
+ border-radius: 0px;
+}
+
+/* Moves the buttons */
+form.submit .spacer, form.create .spacer { float: none; width: auto; }
+.sidebox.submit .spacer a, .sidebox.create .spacer a { display: none; }
+.submit .spacer .status .a { display: inline; }
+.morelink .nub { display: none; }
+.sidebox.submit, .res-nightmode .sidebox.submit { position: absolute; top: 144px;  }
+.sidebox.submit.submit-text, .res-nightmode .sidebox.submit.submit-text { display: block; }
+.sidebox.submit.submit-link, .res-nightmode .sidebox.submit.submit-link  { display: none; left: auto; right: 0; padding-right: 115px; }
+.morelink a:hover, .res-nightmode .morelink a:hover { text-decoration: none }
+.morelink .nub, .morelink .nub:hover, .res-nightmode .morelink .nub, .res-nightmode .morelink .nub:hover { display: none }
+
+/* replace "readers" */
+.titlebox .word { display: none; }
+.subscribers .number:after { content: ' game developers'; }
+.users-online .number:after { content: ' devs browsing'; }
+
+/* Hide founder */
+.titlebox .bottom { display: none; }
+
+/* Hide text under Post Button */
+.sidebox.submit .subtitle, .res-nightmode .sidebox.submit { display: none; }
+.sidebox.submit .subtitle:before, .res-nightmode.submit .subtitle:before { display: none; }
+
+/* Color for unapproved submitters */
+media="all" .disabled .morelink a { color: white !important; }
+
+/* Submit a link and message the moderator buttons */
+/* Message the moderators */
+/* Edit the link and add your subreddit to the end */
+.helplink[href="/message/compose?to=%2Fr%2Fgamedev"] {
+ display: block;
+ font-weight: normal;
+ letter-spacing: 0;
+ background: gray;
+ border-color: #0f0000;
+ -moz-border-radius: 0px!important;
+ -webkit-border-radius: 0px!important;
+ -o-border-radius: 0px!important;
+ -ms-border-radius: 0px!important;
+ -khtml-border-radius: 0px!important;
+ border-radius: 0px !important;  
+ color: #fff;
+ font-size: 11px;
+ width: 300px;
+ line-height: 25px;
+ text-align: center;
+ position: absolute;
+ top: 196px;
+ z-index: 3;
+ text-decoration: none !important;
+}
+.res-nightmode .helplink[href="/message/compose?to=%2Fr%2Fgamedev"] { background: #4c4c4c; color: #aaddff; }
+.helplink[href="/message/compose?to=%2Fr%2Fgamedev"]:hover {
+ background-color: #595959;
+ border-color: #d31145;
+}
+.res-nightmode .helplink[href="/message/compose?to=%2Fr%2Fgamedev"]:hover { background: #353535; }
+.helplink[href="/message/compose?to=%2Fr%2Fgamedev"]:active { background: #353535; }
+.res-nightmode .helplink[href="/message/compose?to=%2Fr%2Fgamedev"]:active { background: #252525; }
+.helplink[href="/message/compose?to=%2Fr%2Fgamedev"]:after {
+ content:'';
+ display: block;
+ position: absolute;
+ height: 0;
+ width: 0;
+ border-left: 0px solid #63983d;
+ border-top: 0px solid;
+ border-bottom: 0px solid;
+ top: 0px;
+ right: -0px;
+ z-index: 5;
+}
+
+/* Search Stuff */
+.side #search input[type="text"]:hover, .side #search input[type="text"]:focus { border: 1px solid #4D90FE; outline: none; }
+.side #search input[type="text"] {
+ border: 1px solid #DDD!important;
+ background-repeat: no-repeat;
+ outline: none;
+ text-align: center;
+ font-size: 14px;
+ padding: 5px 0;
+ margin-top: 63px;
+ /* width: 288px!important; - See Above */
+ color: #AAA;
+}
+#searchexpando {
+ display: none !important;
+ border: none;
+ background: #e2e2e2;
+ z-index: 999;
+}
+.search-page .side { margin-top: 178px; }
+
+.res-nightmode #searchexpando { background: #353535 !important; }
+
+/* Other */
+.create { display: none; }
+.login-form .submit { height: auto; }
+.login-form-side { border: 0px; padding: 0px; }
+.pref-lang { margin-right: 6px; }
+body .keyHighlight { border: 0px; background: #eee; outline: none; }
+.submit .spacer, .create .spacer {
+ float: right;
+ background: none;
+ width: 190px;
+ padding: 0px;
+ margin: 0px;
+}
+
+/* subreddit title in sidebar */
+.titlebox h1.redditname { text-align: center; font-size: 20px; }
+.titlebox h1.redditname:before { content: "/r/"; }
+
+/* Subbuttons */
+/* res .RESdashboardtoggle */
+.fancy-toggle-button .active,
+.res .side .RESshortcutside,
+.res .side .RESDashboardToggle {
+ padding: 2px 4px;
+ background-image: none !important;
+ outline: none !important;
+ border: 0px;
+ border-radius: 0px;
+ color: #fff;
+ text-transform: capitalize;
+ font-weight: 400;
+ width: 90px!important;
+ font-size: 12px;
+ cursor: default;
+ width: 88px!important;
+ height: 18px;
+ background: #7BB850;
+ text-align: center;
+ line-height: 18px;
+ display: inline-block!important;
+}
+.res .side .RESDashboardToggle { margin-right: 0px; width: 90px!important; }
+/* Sub */
+.fancy-toggle-button .add,
+.res .side .RESshortcutside.add,
+.res .side .RESDashboardToggle.add { background: #7BB850; }
+
+.fancy-toggle-button .add:before,
+.res .RESshortcutside .add:before,
+.res .RESDashboardToggle.add:before { content: "+"; }
+
+.fancy-toggle-button .add:hover,
+.res .side .RESshortcutside:hover,
+.res .side .RESDashboardToggle:hover { background: #568038; }
+
+.fancy-toggle-button .add:active,
+.res .side .RESshortcutside:active,
+.res .side .RESDashboardToggle:active { background: #3c5927; }
+
+/* Unsub */
+.fancy-toggle-button .remove,
+.res .RESshortcutside.remove,
+.res .RESDashboardToggle.remove { background: #ccc; color: #fff; }
+
+.fancy-toggle-button .remove:before { content: "-";}
+.res .RESshortcutside.remove:before,
+.res .RESDashboardToggle.remove:before { content: "  "; }
+
+.fancy-toggle-button .remove:hover,
+.res .RESshortcutside.remove:hover,
+.res .RESDashboardToggle.remove:hover { background: #b2b2b2; }
+
+.fancy-toggle-button .remove:active,
+.res .RESshortcutside.remove:active,
+.res .RESDashboardToggle.remove:active { background-color: #7f7f7f; }
+
+
+/* Some random spacer.. sorry */
+.side { margin-top: 80px; }
+
+/* read our guidelines on submit page */
+.submit-page .usertext textarea {
+ background-image: url(%%read-our-guidelines%%) !important;
+ background-position: center !important;
+ background-repeat: no-repeat !important;
+}
+
+.submit-page .usertext textarea:focus { background-image: none !important; }
+
+/* Posting Guidelines section */
+
+.titlebox .md ol {
+ margin:-28px 0px 0 0px;
+ counter-reset: li;
+ list-style: none;
+ font: 14px;
+ padding: 0;
+}
+
+/* Fixes weird new reddit css padding/margin for <p> */
+.titlebox .md ol p { padding: 0; margin: 0; }
+.res-nightmode .titlebox .md ol p { padding: 0; margin: 0; }
+
+/* Number box pre-transition */
+.titlebox .md ol li:before {
+ content: counter(li);
+ counter-increment: li;
+ position: absolute; 
+ left: -0em;
+ top: 87%;
+ margin: -1.4em 0em 0 -.6em;
+ height: .4em;
+ width: .4em;
+ line-height: 2.4em;
+ color: #fff;
+ border: .22em solid #191919;
+ text-align: center;
+ font-weight: 600;
+ border-radius: 0.2em;
+ content: "";
+ background: #6da9f5;
+ -webkit-transition: all .1s ease;
+ -moz-transition: all .1s ease;
+ -ms-transition: all .1s ease;
+ -o-transition: all .1s ease;
+ transition: all .1s ease;
+}
+.res-nightmode .titlebox .md ol li:before { background: #4c76ab; }
+
+/* 1 */
+.titlebox .md ol li:nth-child(1):before { margin-left: -1.5em; height: 2.2em; width: 2.2em; border-radius: 0.4em; background: #6da9f5; top: 55%; content: "DD"; }
+.res-nightmode .titlebox .md ol li:nth-child(1):before { background: #4c76ab; }
+
+/* 7 8 9 */
+.titlebox .md ol li:nth-child(n+6):before { background: #7bb850; }
+.res-nightmode .titlebox .md ol li:nth-child(n+6):before { background: #568038; }
+/* 6 */
+.titlebox .md ol li:nth-child(6):before { margin-left: -1.5em; height: 2.2em; width: 2.2em; border-radius: 0.4em; top: 55%; content: "T"; }
+
+
+/* 7 8 */
+.titlebox .md ol li:nth-child(7):before { top: 77%; }
+.titlebox .md ol li:nth-child(8):before { top: 77%; }
+
+/* 11 12 13 14 15*/
+.titlebox .md ol li:nth-child(n+10):before { background: #808080; }
+.res-nightmode .titlebox .md ol li:nth-child(n+10):before { background: #595959; }
+
+/* 12 15 */
+.titlebox .md ol li:nth-child(12):before { top: 73%; }
+.titlebox .md ol li:nth-child(15):before { top: 68%; }
+
+/* 10 */
+.titlebox .md ol li:nth-child(10):before { margin-left: -1.5em; height: 2.2em; width: 2.2em; border-radius: 0.4em; top: 55%; content: "+"; }
+
+/* Main text box pre-transition */
+.titlebox .md ol li {
+ position: relative;
+ display: block;
+ padding: 0.8em 0.8em 0.8em 1.9em;
+ margin: 4px .5em 4px 1.9em;
+ background: #4c76ab;
+ font-size: 12px;
+ -webkit-transition: all .3s ease;
+ -moz-transition: all .3s ease;
+ -ms-transition: all .3s ease;
+ -o-transition: all .3s ease;
+ transition: all .3s ease;
+}
+.res-nightmode .titlebox .md ol li { background: #15212f; color: #4c4c4c; }
+.res-nightmode .titlebox .md ol li p { color: #4c4c4c; }
+
+/* 1 */
+.titlebox .md ol li:nth-child(1) { color: #000; }
+
+/* 2 3 4 5 */
+.titlebox .md ol li:nth-child(-n+5) { background: #e1edfd; }
+.res-nightmode .titlebox .md ol li:nth-child(-n+5) { background: #15212f; }
+
+/* 6 7 8 9 */
+.titlebox .md ol li:nth-child(n+6) { background: #d7e9ca; }
+.res-nightmode .titlebox .md ol li:nth-child(n+6) { background: #243718; }
+
+/* 10 11 12 13 14 15 */
+.titlebox .md ol li:nth-child(n+10) { background: #d8d8d8; }
+.res-nightmode .titlebox .md ol li:nth-child(n+10) { background: #141414; }
+
+/* Main text box post-transition */
+/* 1 2 3 4 5 */
+.titlebox .md ol li:hover:nth-child(-n+5) { background: #6da9f5; margin-right: 0em; margin-left: 2.4em; }
+.res-nightmode .titlebox .md ol li:hover:nth-child(-n+5) { background: #4c76ab; }
+
+/* 6 7 8 9 */
+.titlebox .md ol li:nth-child(n+6):hover { background: #7bb850; margin-right: 0em; margin-left: 2.4em; }
+.res-nightmode .titlebox .md ol li:nth-child(n+6):hover { background: #568038; }
+
+/* 10 11 12 13 14 15 */
+.titlebox .md ol li:nth-child(n+10):hover { background: #8b8d8e; margin-right: 0em;  margin-left: 2.4em; }
+.res-nightmode .titlebox .md ol li:nth-child(n+10):hover { background: #616263; }
+
+/* Number box post-transition */
+.titlebox .md ol li:hover:before {
+ -ms-transform: scale(1.3,1.3);
+ -webkit-transform: scale(1.3,1.3);
+ transform: scale(1.3,1.3);
+ text-align: center;
+}
+
+/* 1 2 3 4 5 */
+.titlebox .md ol li:hover:nth-child(-n+5):before { background: #4c76ab; }
+.res-nightmode .titlebox .md ol li:hover:nth-child(-n+5):before { background: #355277; }
+
+/* 2 3 4 5 */
+.titlebox .md ol li:hover:nth-child(n+2):before {
+ background: #4c76ab;
+ margin-left: -1.1em;
+ -webkit-transition: all .2s ease;
+ -moz-transition: all .2s ease;
+ -ms-transition: all .2s ease;
+ -o-transition: all .2s ease;
+ transition: all .2s ease;
+ }
+ .res-nightmode .titlebox .md ol li:hover:nth-child(n+2):before { background: #355277; }
+
+/* 6 */
+.titlebox .md ol li:hover:nth-child(6):before { margin-left: -1.5em; }
+/* 6 7 8 9 */
+.titlebox .md ol li:hover:nth-child(n+6):before { background: #568038; }
+.res-nightmode .titlebox .md ol li:hover:nth-child(n+6):before { background: #3c5927; }
+
+/* 10 */
+.titlebox .md ol li:hover:nth-child(10):before { margin-left: -1.5em }
+/* 10 11 12 13 14 15 */
+.titlebox .md ol li:hover:nth-child(n+10):before { background: #595959; }
+.res-nightmode .titlebox .md ol li:hover:nth-child(n+10):before { background: #3e3e3e; }
+
+/* Posting guidelines header/footer */
+.titlebox .md ul p { padding: 0; margin: 0; font-size: 12px; }
+
+.titlebox .md ul li:first-child
+{
+ margin: 0em 0em 0em -1em;
+ padding: 14px 10px 0px 10px;
+ background: #d8d8d8;
+ border: 1px #111111;
+ list-style-type: none;
+ width: 251px;
+ font-size: 16px;
+ text-align: center;
+ -webkit-border-top-left-radius: 10px; 
+ -webkit-border-top-right-radius: 10px;
+ -moz-border-radius-topleft: 10px;
+ -moz-border-radius-topright: 10px;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+}
+
+.res-nightmode .titlebox .md ul li:first-child { background: #141414; }
+.old-markdown .titlebox .md ul li:first-child, .res-nightmode .old-markdown .titlebox .md ul li:first-child { width: 251px; margin-left: -4px; }
+
+/* "Posting Guidelines:" */
+.titlebox .md ul li a:first-child { font-size: 16px; color: #006caf; font-weight: 430; }
+.titlebox .md ul li a:hover:first-child { color: #004875; }
+.res-nightmode .titlebox .md ul li a:first-child { color: #499fab; }
+
+.titlebox .md ul li:nth-child(2)
+{
+ margin: 0em -1.9em 0em -1.45em;
+ padding: .4em .8em .4em 0.6em;
+ width: 251px;
+ background: #d8d8d8;
+ border: 1px #111111;
+ width: 256px;
+ font-size: 80%;
+ list-style-type: none;
+ text-align: center;
+}
+
+.res-nightmode .titlebox .md ul li:nth-child(2) { background: #141414; color: #666; }
+.old-markdown .titlebox .md ul li:nth-child(2), .res-nightmode old-markdown .titlebox .md ul li:nth-child(2) { width: 255px; margin-left: -4px; }
+
+
+.titlebox .md ul li:nth-child(3)
+{
+ padding: .4em 1.5em 1em;
+ margin: 0em 0em 2.6em -1.35em;
+ background: #d8d8d8;
+ border: 1px #111111;
+ width: 235px;
+ list-style-type: none;
+ text-align: center;
+ font-size: 12px;
+}
+.res-nightmode .titlebox .md ul li:nth-child(3) { background: #141414; color: #666; }
+.old-markdown .titlebox .md ul li:nth-child(3), .res-nightmode .old-markdown .titlebox .md ul li:nth-child(3) { width: 235px; margin-left: -4px; }
+
+.titlebox .md ol li:nth-child(15)
+{
+ padding-bottom: 1.2em;
+ margin-bottom: 3.2em;
+ -webkit-border-bottom-left-radius: 10px; 
+ -webkit-border-bottom-right-radius: 10px;
+ -moz-border-radius-bottomleft: 10px;
+ -moz-border-radius-bottomright: 10px;
+ border-bottom-left-radius: 10px;
+ border-bottom-right-radius: 10px;
+}
+
+/* Guidelines hover extra info pop up box */
+
+.titlebox .md ol li:hover:after {
+ position: absolute;
+ white-space: normal;
+ display: block;
+ z-index: 1000;
+ width: 266px;
+ border: 0.3em dotted #323232;
+ padding: 12px 12px;
+ background: #b6d4fa;
+ content: " ";
+ text-align: left;
+ font-size: 12px;
+ color: #000;
+ margin: 15px 0px 0 -47px;
+}
+.res-nightmode .titlebox .md ol li:hover:after { border: 0.3em dotted #e5e5e5; background: #2c3743; color: #f2f2f2; }
+
+/* 1 */
+.titlebox .md ol li:nth-child(1):hover:after { visibility: hidden; }
+/* 6 */
+.titlebox .md ol li:nth-child(6):hover:after { visibility: hidden; }
+/* 10 */
+.titlebox .md ol li:nth-child(10):hover:after { visibility: hidden; }
+
+/* Guidelines hover content */
+
+.titlebox .md ol li:nth-child(1):hover:after {
+content: ""
+}
+
+.titlebox .md ol li:nth-child(2):hover:after {
+content: "This includes asking about how to start as a game developer, about education and schools, and how to start a career in the game industry. You will also find lots of resources on these topics on the sub. If you still have questions, submit a comment in the current daily discussion thread.";
+}
+
+.titlebox .md ol li:nth-child(3):hover:after {
+content: "First try searching the web for 'pros and cons of Unreal Engine' or 'Unity3D vs Unreal Engine'. There are also a couple engine/library comparison charts on the subreddit to help you make a decision. If you still have questions, submit a comment in the current daily discussion thread.";
+}
+
+.titlebox .md ol li:nth-child(4):hover:after {
+content: "Even if they are related to the development of a game - this includes asking how to use libraries/engines, solving compile errors, and code help. There are communities dedicated to these types of questions that might be better suited to give answers such as StackExchange.";
+}
+
+.titlebox .md ol li:nth-child(5):hover:after {
+content: "We are probably not your target audience - this includes updates on your game, advertisements, and Kickstarter campaigns. If you want to share screenshots or gather feedback about your game, please use our weekly threads. However, you're still welcome to submit a comment in the current daily discussion thread about your game.";
+}
+
+.titlebox .md ol li:nth-child(6):hover:after {
+background: #cae2b9;
+content: "";
+}
+
+.titlebox .md ol li:nth-child(7):hover:after {
+background: #cae2b9;
+content: "We encourage community members to post their original content, videos, or streams. If you do post an article, we require a comprehensive summary of the content, at the very least, if not the whole article in it's entirety. Remember to take part in the discussion that follows. Streams can be posted once a month.";
+}
+.res-nightmode .titlebox .md ol li:nth-child(7):hover:after { background: #394b2f; }
+
+.titlebox .md ol li:nth-child(8):hover:after {
+background: #cae2b9;
+content: "In general, top-level posts are allowed if they offer something useful to other game developers. If your post benefits you more than others then it's probably not allowed.";
+}
+.res-nightmode .titlebox .md ol li:nth-child(8):hover:after { background: #394b2f; }
+
+.titlebox .md ol li:nth-child(9):hover:after {
+background: #cae2b9;
+content: "When sharing art, music, sound, and other resources, make sure they are free and include a relevant license. This is not the place to advertise your paid plug-ins, assets, or services. If sharing resources, they must be able to be used by the entire community instead of a couple chosen people.";
+}
+.res-nightmode .titlebox .md ol li:nth-child(9):hover:after { background: #394b2f; }
+
+.titlebox .md ol li:nth-child(10):hover:after {
+background: #d0d3d6;
+content: "";
+}
+
+.titlebox .md ol li:nth-child(11):hover:after {
+background: #d0d3d6;
+content: "Feedback Friday is used to gather feedback for your games. Screenshot Saturday is used to show off your game. Soundtrack Sunday is used for sharing and gathering feedback on your game music. Marketing Monday is used to ask and exchange information about marketing/business. Quarterly Showcase is our periodic online convention to show off finished products.";
+}
+.res-nightmode .titlebox .md ol li:nth-child(11):hover:after { background: #323232; }
+
+.titlebox .md ol li:nth-child(12):hover:after {
+background: #d0d3d6;
+content: "These types of posts belong on /r/INAT or /r/gamedevClassifieds";
+}
+.res-nightmode .titlebox .md ol li:nth-child(12):hover:after { background: #323232; }
+
+.titlebox .md ol li:nth-child(13):hover:after {
+background: #d0d3d6;
+content: "This is a very general and broad rule. Basically, do not ask how to solve technical/coding problems, to do your homework, to take a survey, or do research for you.";
+}
+.res-nightmode .titlebox .md ol li:nth-child(13):hover:after { background: #323232; }
+
+.titlebox .md ol li:nth-child(14):hover:after {
+background: #d0d3d6;
+content: "Instead, use /r/LegalAdvice or the weekly legal AMA. It's generally not smart to ask for legal advice from strangers. Contact a lawyer.";
+}
+.res-nightmode .titlebox .md ol li:nth-child(14):hover:after { background: #323232; }
+
+.titlebox .md ol li:nth-child(15):hover:after {
+background: #d0d3d6;
+content: "If you're unsure of whether or not your post is allowed, post it in the Daily Discussion thread. Nearly everything is allowed there.";
+}
+.res-nightmode .titlebox .md ol li:nth-child(15):hover:after { background: #323232; }
+
+/* Sidebar Headers & markup */
+
+.titlebox .md { font-family: arial; font-size: 105%; color: #34495e; }
+.titlebox .md blockquote { border: 0; margin: 0 15px 20px 15px; }
+.titlebox .md blockquote:nth-of-type(1) { border-bottom: 0; }
+.titlebox .md blockquote:nth-of-type(2) { border-bottom: 0; }
+.titlebox .md blockquote strong { font-size: 95%; color: #666; }
+.titlebox .md blockquote a { font-size: 95%; color: #0079c3; }
+.titlebox .md blockquote p { font-size: 95%; padding: 10px; }
+.titlebox .md blockquote h1 { border: 1px solid #dee5e7; height: 26px; line-height: 26px; text-indent: 10px; color: #444;background: #fdfdfd; }
+body:not(.res) .titlebox .md blockquote h1 {margin-top: 20px; }
+
+/* Filter posts by subject: */
+.titlebox .md blockquote h2 { border-top: 1px solid #e9f3fc; margin-top: 1em; margin-right: 1.1em; padding-top: 1em; text-align: center; color: #666; font-size: 140%; font-weight: 550; /*background-color: #e8ebee;*/ }
+.res-nightmode .titlebox .md blockquote h2 { color: #e0e0e0; }
+.old-markdown .titlebox .md blockquote h2 { font-weight: 200; }
+.titlebox .md blockquote h2 a { border-top: 1px solid #e9f3fc; margin-top: 1em; margin-right: 1.2em; padding-top: 1em; text-align: center; color: #666; font-size: 140%; font-weight: 550; /*background-color: #e8ebee;*/ }
+
+/* Custom Link Flair and link flair filters */
+
+.linkflairlabel[title="Daily"] { background-color: #6da9f5; }
+.linkflairlabel[title="FF"] { background-color: #8275EB; }
+.linkflairlabel[title="SSS"] { background-color: #eb8275; }
+.linkflairlabel[title="STS"] { background-color: #C06FC7; }
+.linkflairlabel[title="MM"] { background-color: #D6C52C; }
+.linkflairlabel[title="Roundup"] { background-color: #acacac; }
+.linkflairlabel[title="Gamejam"] { background-color: #ffc101; }
+.linkflairlabel[title="AMA"] { background-color: #146a78; }
+.linkflairlabel[title="Resource"] { background-color: #5653b2; }
+.linkflairlabel[title="Postmortem"] { background-color: #650d1f; }
+.linkflairlabel[title="Technical"] { background-color: #1b961d; }
+.linkflairlabel[title="Showcase"] { background-color: #ffc101; }
+.linkflairlabel[title="TPT"] { background-color: #ffc101; } /* wtf is tpt? */
+
+.linkflairlabel {
+  opacity: 1;
+  margin: 0 5px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 0;
+  color: #FFF;
+  font-size: x-small;
+}
+
+/* Weekly Threads */
+
+.side a[href="http://bit.ly/1vIatlF"], .side a[href="http://bit.ly/1vIbfzN"], .side a[href="http://bit.ly/1yaAGsm"], .side a[href="http://bit.ly/1zoeGZC"], .side a[href="http://bit.ly/11RJDer"], .side a[href="http://bit.ly/1FmE5oC"] { 
+ display: inline-block;
+ position: relative;
+ width: 206px;
+ height: 20px;
+ font-weight: 550;
+ text-align: center;
+ font-size: 14px;
+ padding: 6px 10px 2px;
+ margin: 2px 0 5px 30px;
+ line-height: 14px;
+ color: #fff;
+ background: #bdc3c7;
+ -webkit-transition: all .2s ease;
+ -moz-transition: all .2s ease;
+ -ms-transition: all .2s ease;
+ -o-transition: all .2s ease;
+ transition: all .2s ease;
+}
+.side a[href='http://bit.ly/1vIatlF'] { background: #8275EB; } /*FF*/
+.side a[href='http://bit.ly/1vIatlF']:hover { background: #5b51a4; }
+.side a[href='http://bit.ly/1vIatlF']:active { background: #3f3872; }
+.side a[href='http://bit.ly/1vIbfzN'] { background: #eb8275; }  /*SSS*/
+.side a[href='http://bit.ly/1vIbfzN']:hover { background: #a45b51; }
+.side a[href='http://bit.ly/1vIbfzN']:active { background: #723f38; }
+.side a[href='http://bit.ly/1yaAGsm'] { background: #C06FC7; }  /*STS*/
+.side a[href='http://bit.ly/1yaAGsm']:hover { background: #864d8b; }
+.side a[href='http://bit.ly/1yaAGsm']:active { background: #5d3561; }
+.side a[href='http://bit.ly/1zoeGZC'] { background: #D6C52C; } /*MM*/
+.side a[href='http://bit.ly/1zoeGZC']:hover { background: #95891e; }
+.side a[href='http://bit.ly/1zoeGZC']:active { background: #685f15; }
+.side a[href='http://bit.ly/11RJDer'] { background: #acacac; } /*QS*/
+.side a[href='http://bit.ly/11RJDer']:hover { background: #787878; }
+.side a[href='http://bit.ly/11RJDer']:active { background: #545454; }
+.side a[href='http://bit.ly/1FmE5oC'] { background: #6da9f5; } /*DD*/
+.side a[href='http://bit.ly/1FmE5oC']:hover { background: #4c76ab; }
+.side a[href='http://bit.ly/1FmE5oC']:active { background: #355277; }
+
+/* Weekly Threads Nightmode */
+.res-nightmode .side a[href='http://bit.ly/1vIatlF'] { background: #5b51a4; } /*FF*/
+.res-nightmode .side a[href='http://bit.ly/1vIatlF']:hover { background: #3f3872; }
+.res-nightmode .side a[href='http://bit.ly/1vIatlF']:active { background: #2c274f; }
+.res-nightmode .side a[href='http://bit.ly/1vIbfzN'] { background: #a45b51; }  /*SSS*/
+.res-nightmode .side a[href='http://bit.ly/1vIbfzN']:hover { background: #723f38; }
+.res-nightmode .side a[href='http://bit.ly/1vIbfzN']:active { background: #4f2c27; }
+.res-nightmode .side a[href='http://bit.ly/1yaAGsm'] { background: #864d8b; }  /*STS*/
+.res-nightmode .side a[href='http://bit.ly/1yaAGsm']:hover { background: #5d3561; }
+.res-nightmode .side a[href='http://bit.ly/1yaAGsm']:active { background: #412543; }
+.res-nightmode .side a[href='http://bit.ly/1zoeGZC'] { background: #95891e; } /*MM*/
+.res-nightmode .side a[href='http://bit.ly/1zoeGZC']:hover { background: #685f15; }
+.res-nightmode .side a[href='http://bit.ly/1zoeGZC']:active { background: #48420e; }
+.res-nightmode .side a[href='http://bit.ly/11RJDer'] { background: #787878; } /*QS*/
+.res-nightmode .side a[href='http://bit.ly/11RJDer']:hover { background: #545454; }
+.res-nightmode .side a[href='http://bit.ly/11RJDer']:active { background: #3a3a3a; }
+.res-nightmode .side a[href='http://bit.ly/1FmE5oC'] { background: #4c76ab; } /*DD*/
+.res-nightmode .side a[href='http://bit.ly/1FmE5oC']:hover { background: #355277; }
+.res-nightmode .side a[href='http://bit.ly/1FmE5oC']:active { background: #253953; }
+
+/* Filter posts by subject */
+
+.side a[href="http://bit.ly/1vjgm7r"], .side a[href="http://bit.ly/1y7CRvR"], .side a[href="http://bit.ly/11RJOGG"], .side a[href="http://bit.ly/1xWl5Ow"], .side a[href="http://bit.ly/1vjgoMJ"], .side a[href="/r/gamedev"] { 
+ display: inline-block;
+ position: relative;
+ width: 88px;
+ height: 20px;
+ line-height: 20px;
+ font-weight: 450;
+ text-align: center;
+ font-size: 11px;
+ padding: 0px 10px;
+ color: #fff;
+ background: #bdc3c7;
+ -webkit-transition: all .2s ease;
+ -moz-transition: all .2s ease;
+ -ms-transition: all .2s ease;
+ -o-transition: all .2s ease;
+ transition: all .2s ease;
+}
+.side a[href='http://bit.ly/1vjgm7r'] { margin: 0 0 5px 30px; background: #c39300; }            /*Gamejam*/
+.side a[href='http://bit.ly/1vjgm7r']:hover { background: #755800; }
+.side a[href='http://bit.ly/1y7CRvR'] { margin: 0px 0 0px 10px; background: #650d1f; }          /*Postmortem*/
+.side a[href='http://bit.ly/1y7CRvR']:hover { background: #3c0712; }
+.side a[href='http://bit.ly/11RJOGG'] { margin: 0 0 5px 30px; background: #146a78; }            /*AMA*/
+.side a[href='http://bit.ly/11RJOGG']:hover { background: #0c3f48; }
+.side a[href='http://bit.ly/1xWl5Ow'] { margin: 0 0 5px 10px; background: #1b961d; }            /*Technical*/
+.side a[href='http://bit.ly/1xWl5Ow']:hover { background: #105a11; }
+.side a[href='http://bit.ly/1vjgoMJ'] { margin-left: 30px; background: #5653b2; }               /*Resource*/
+.side a[href='http://bit.ly/1vjgoMJ']:hover { background: #33316a; }
+.side a[href="/r/gamedev"] { margin: 0 0 5px 10px; background: #616161; }                       /*Unfiltered*/
+.side a[href="/r/gamedev"]:hover { background: #3a3a3a; }
+
+/* Filter posts by subject Nightmode */
+.res-nightmode .side a[href='http://bit.ly/1vjgm7r'] { margin: 0 0 5px 30px; background: #755800; }            /*Gamejam*/
+.res-nightmode .side a[href='http://bit.ly/1vjgm7r']:hover { background: #463400; }
+.res-nightmode .side a[href='http://bit.ly/1y7CRvR'] { margin: 0px 0 0px 10px; background: #3c0712; }          /*Postmortem*/
+.res-nightmode .side a[href='http://bit.ly/1y7CRvR']:hover { background: #24040a; }
+.res-nightmode .side a[href='http://bit.ly/11RJOGG'] { margin: 0 0 5px 30px; background: #0c3f48; }            /*AMA*/
+.res-nightmode .side a[href='http://bit.ly/11RJOGG']:hover { background: #07252b; }
+.res-nightmode .side a[href='http://bit.ly/1xWl5Ow'] { margin: 0 0 5px 10px; background: #105a11; }            /*Technical*/
+.res-nightmode .side a[href='http://bit.ly/1xWl5Ow']:hover { background: #09360a; }
+.res-nightmode .side a[href='http://bit.ly/1vjgoMJ'] { margin-left: 30px; background: #33316a; }               /*Resource*/
+.res-nightmode .side a[href='http://bit.ly/1vjgoMJ']:hover { background: #1e1d3f; }
+.res-nightmode .side a[href="/r/gamedev"] { margin: 0 0 5px 10px; background: #3a3a3a; }                       /*Unfiltered*/
+.res-nightmode .side a[href="/r/gamedev"]:hover { background: #222222; }
+
+/* Communications links */
+
+.side .md > h3 {
+ position: relative;
+ margin: 0 15px 10px 15px;
+ padding: 0 10px 10px 20px;
+ font-size: 95%;
+ font-weight: normal;
+ -webkit-transition: all .3s ease;
+ -moz-transition: all .3s ease;
+ -ms-transition: all .3s ease;
+ -o-transition: all .3s ease;
+ transition: all .3s ease;
+}
+
+.side .md > h3:before {
+ content: '';
+ height: 20px;
+ width: 20px;
+ position: absolute;
+ left: -15px;
+ top: 50%;
+ margin-top: -20px;
+ opacity: 0;
+ transition: opacity 200ms, left 200ms;
+}
+
+.side .md > h3:hover:before {
+ opacity: 1;
+ left: -5px; 
+ width: 24px;
+ -webkit-transition: all .4s ease;
+ -moz-transition: all .4s ease;
+ -ms-transition: all .4s ease;
+ -o-transition: all .4s ease;
+ transition: all .4s ease;
+}
+.side .md > h3:nth-of-type(1) { }
+.side .md > h3:nth-of-type(1):before { }
+.side .md > h3:nth-of-type(2):before { }
+.side .md > h3:nth-of-type(3):before { }
+
+.side .md > h3:hover { padding-left: 25px; padding-right: 5px; }
+.side .md > h3 a:hover { font-weight: bold; }
+
+.side .md > h3:nth-of-type(1):hover:before { background-image: url(%%irc-icon%%); }
+.side .md > h3:nth-of-type(2):hover:before { background-image: url(%%hangout-icon%%); }
+.side .md > h3:nth-of-type(3):hover:before { background-image: url(%%stream-icon%%); }
+
+/* Wiki & resources section */
+
+.titlebox .md table { margin: 0 0 0px 8px; font-size: 11px; }
+.old-markdown .titlebox .md table { margin: 0 0 0px 22px; font-size: 11px; }
+.titlebox .md table a { color: #0079c3; }
+.res-nightmode .titlebox .md table a { color: #7fbce1; }
+.titlebox .md table a:hover { color: #003c61; }
+.res-nightmode .titlebox .md table a:hover { color: #99b1bf; }
+.titlebox .md th { display: none; }
+.titlebox .md td { 
+ background: #eceff1;
+ width: 114px;
+ border: 4px solid #f6f6f6; 
+ height: 16px;
+ display: inline-block;
+ text-align: center;
+ font-size: 11px;
+ vertical-align: middle;
+ line-height: 17px;
+ -webkit-transition: all .4s ease;
+ -moz-transition: all .4s ease;
+ -ms-transition: all .4s ease;
+ -o-transition: all .4s ease;
+ transition: all .4s ease; }
+.res-nightmode .titlebox .md td { background: #383838; border: 4px solid #222222; }
+.old-markdown .titlebox .md td { padding: 4px 0px; }
+
+.titlebox .md td a { display: block; height: 18px; width: 100%; }
+.titlebox .md td:hover { background: #6da9f5; }
+.titlebox .md td:active { background: #4c76ab; }
+.res-nightmode .titlebox .md td:hover { background: #36547a; }
+.res-nightmode .titlebox .md td:active { background: #253a55; }
+.titlebox .md td:hover:nth-child(2) { background: #6da9f5; }
+.res-nightmode .titlebox .md td:hover:nth-child(2) { background: #36547a; }
+
